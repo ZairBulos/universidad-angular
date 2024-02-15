@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './persona.component.html',
   styleUrl: './persona.component.css'
 })
-export class PersonaComponent { }
+export class PersonaComponent { 
+  name: string = 'Zair';
+  lastName: string = 'Bulos';
+  age: number = 22;
+}

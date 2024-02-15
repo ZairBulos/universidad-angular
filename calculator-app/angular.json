@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mi-primera-app": {
+    "calculator-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mi-primera-app",
+            "outputPath": "dist/calculator-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mi-primera-app:build:production"
+              "buildTarget": "calculator-app:build:production"
             },
             "development": {
-              "buildTarget": "mi-primera-app:build:development"
+              "buildTarget": "calculator-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "mi-primera-app:build"
+            "buildTarget": "calculator-app:build"
           }
         },
         "test": {
@@ -106,8 +106,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }

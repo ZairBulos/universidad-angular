@@ -5,4 +5,12 @@ import { Component } from "@angular/core";
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.css']
 })
-export class PersonasComponent { }
+export class PersonasComponent {
+  disabledBtn = false;
+  message = '';
+  title = 'Técnico Universitario en Programación';
+
+  addPerson() {
+    this.message = 'Persona agregada'
+  }
+}
