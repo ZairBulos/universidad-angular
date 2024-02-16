@@ -6,11 +6,12 @@ import { Component } from "@angular/core";
   styleUrls: ['./personas.component.css']
 })
 export class PersonasComponent {
-  disabledBtn = false;
   message = '';
+  showMessage = false;
   title = 'Técnico Universitario en Programación';
 
-  addPerson() {
-    this.message = 'Persona agregada'
+  addPerson(): void {
+    this.showMessage = true;
+    this.message = 'Persona agregada';
   }
 }
