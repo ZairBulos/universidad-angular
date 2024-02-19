@@ -1,0 +1,25 @@
+<form>
+  <div class="form-group">
+    <label>Operando A</label>
+    <input
+      type="number"
+      [(ngModel)]="operandA"
+      name="operandA"
+      placeholder="Escribe operando A"
+      class="form-control"
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Operando B</label>
+    <input
+      type="number"
+      [(ngModel)]="operandB"
+      name="operandB"
+      placeholder="Escribe operando B"
+      class="form-control"
+    />
+  </div>
+
+  <button (click)="add()" class="btn btn-primary">Sumar</button>
+</form>

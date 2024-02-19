@@ -5,41 +5,17 @@
 
   <hr />
 
-  <form>
-    <div class="row">
-      <div class="col-auto">
-        <label for="name" class="visually-hidden">Nombre</label>
-        <input type="text" [(ngModel)]="nameInput" id="name" name="name" placeholder="Nombre" class="form-control" />
-      </div>
-  
-      <div class="col-auto">
-        <label for="lastName" class="visually-hidden">Apellido</label>
-        <input type="text" [(ngModel)]="lastNameInput" id="lastName" name="lastName" placeholder="Apellido"
-          class="form-control" />
-      </div>
-      
-      <div class="col-auto">
-        <button (click)="addPerson()" class="btn btn-primary">
-          Agregar
-        </button>
-      </div>
-    </div>
-  </form>
-
+  <app-formulario 
+    (addedPerson)="addedPerson($event)"
+  >
+  </app-formulario>
 
   <hr />
-</div>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngFor="let person of people; let idx = index">
-        <p>
-          # {{ idx + 1 }}:
-          {{ person.name }}
-          {{ person.lastName }}
-        </p>
-      </div>
-    </div>
-  </div>
+  <app-persona
+    *ngFor="let personElement of people; let idxElement = index"
+    [person]="personElement"
+    [idx]="idxElement"
+  >
+  </app-persona>
 </div>
