@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Person } from '../person.model';
+import { PeopleService } from '../People.service';
 
 @Component({
   selector: 'app-formulario',
@@ -9,13 +10,13 @@ import { Person } from '../person.model';
 export class FormularioComponent {
   @ViewChild('nameRef') nameInput: ElementRef;
   @ViewChild('lastNameRef') lastNameInput: ElementRef;
-  @Output() addedPerson = new EventEmitter<Person>();
 
-  addPerson(): void {
-    const newPerson = new Person(
-      this.nameInput.nativeElement.value, 
-      this.lastNameInput.nativeElement.value
-    );
-    this.addedPerson.emit(newPerson);
+  constructor(private peopleService: PeopleService) {
+    this.peopleService.greet.subscribe((idx: string) => alert(`El índice es: ${idx}`));
+  }
+
+  onAddPerson(): void {
+    const newPerson = new Person(this.nameInput.nativeElement.value, this.lastNameInput.nativeElement.value);
+    this.peopleService.addPerson(newPerson);
   }
 }
