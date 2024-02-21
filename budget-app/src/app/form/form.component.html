@@ -1,0 +1,40 @@
+<form (click)="f.form.valid && onAdd()" #f="ngForm">
+  <div class="agregar">
+    <div class="agregar_contenedor">
+      <select
+        (change)="onChange($event)"
+        class="agregar_tipo"
+        [ngClass]="{ redfocus: operationSelected === 'expenseOption' }"
+      >
+        <option value="incomeOption" selected>+</option>
+        <option value="expenseOption">-</option>
+      </select>
+      <input
+        type="text"
+        id="description"
+        name="description"
+        [(ngModel)]="descriptionInput"
+        placeholder="Agregar Descripción"
+        required
+        class="agregar_descripcion"
+        [ngClass]="{ redfocus: operationSelected === 'expenseOption' }"
+      />
+      <input
+        type="number"
+        id="value"
+        name="value"
+        [(ngModel)]="valueInput"
+        placeholder="Valor"
+        required
+        class="agregar_valor"
+        [ngClass]="{ redfocus: operationSelected === 'expenseOption' }"
+      />
+      <button type="submit" class="agregar_btn">
+        <i
+          class="ion-ios-checkmark-outline"
+          [ngClass]="{ red: operationSelected === 'expenseOption' }"
+        ></i>
+      </button>
+    </div>
+  </div>
+</form>

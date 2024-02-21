@@ -1,16 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      #{{ idx + 1 }}:
-      {{ person.name }}
-      {{ person.lastName }}
-
-      <button
-        (click)="onGreet()"
-        class="btn btn-info"
-      >
-        Editar
-      </button>
-    </div>
-  </div>
+<div class="item">
+  <input type="checkbox" (click)="onGreet()" />
+  <p>
+    {{ idx + 1 }}: {{ person.name }} {{ person.lastName }}
+  </p>
 </div>

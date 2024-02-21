@@ -1,18 +1,16 @@
-<div class="container">
-  <div class="col">
-    <h1>{{ title }}</h1>
-  </div>
+<div class="box" id="heading">
+  <h1>{{ title }}</h1>
+</div>
 
-  <hr />
-
-  <app-formulario></app-formulario>
-
-  <hr />
-
+<div class="box">
   <app-persona
-    *ngFor="let personElement of people; let idxElement = index"
-    [person]="personElement"
-    [idx]="idxElement"
+    *ngFor="let person of people; let idx = index"
+    [person]="person"
+    [idx]="idx"
   >
   </app-persona>
+</div>
+
+<div class="box">
+  <app-formulario></app-formulario>
 </div>

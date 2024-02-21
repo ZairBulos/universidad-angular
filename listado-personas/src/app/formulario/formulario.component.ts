@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Person } from '../person.model';
 import { PeopleService } from '../People.service';
 
@@ -8,15 +8,15 @@ import { PeopleService } from '../People.service';
   styleUrl: './formulario.component.css',
 })
 export class FormularioComponent {
-  @ViewChild('nameRef') nameInput: ElementRef;
-  @ViewChild('lastNameRef') lastNameInput: ElementRef;
+  nameInput: string;
+  lastNameInput: string;
 
   constructor(private peopleService: PeopleService) {
     this.peopleService.greet.subscribe((idx: string) => alert(`El índice es: ${idx}`));
   }
 
   onAddPerson(): void {
-    const newPerson = new Person(this.nameInput.nativeElement.value, this.lastNameInput.nativeElement.value);
+    const newPerson = new Person(this.nameInput, this.lastNameInput);
     this.peopleService.addPerson(newPerson);
   }
 }

@@ -1,0 +1,19 @@
+<!-- Cabecero -->
+<app-header
+  [total]="getBudgetTotal()"
+  [incomeTotal]="getIncomeTotal()"
+  [expenseTotal]="getExpenseTotal()"
+  [percentageTotal]="getPercentageTotal()"
+>
+</app-header>
+
+<!-- Formulario -->
+<app-form></app-form>
+
+<div class="contenedor limpiarEstilos">
+  <!-- Ingresos -->
+  <app-income [incomes]="incomes"></app-income>
+
+  <!-- Egresos -->
+  <app-expense [expenses]="expenses" [budgetTotal]="getBudgetTotal()"></app-expense>
+</div>

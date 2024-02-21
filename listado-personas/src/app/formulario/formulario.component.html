@@ -1,36 +1,19 @@
-<form>
-  <div class="row">
-    <div class="col-auto">
-      <label for="name" class="visually-hidden">Nombre</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        #nameRef
-        placeholder="Nombre"
-        class="form-control"
-      />
-    </div>
+<form class="item">
+  <input
+    type="text"
+    id="name"
+    name="name"
+    [(ngModel)]="nameInput"
+    placeholder="Nombre"
+  />
 
-    <div class="col-auto">
-      <label for="lastName" class="visually-hidden">Apellido</label>
-      <input
-        type="text"
-        id="lastName"
-        name="lastName"
-        #lastNameRef
-        placeholder="Apellido"
-        class="form-control"
-      />
-    </div>
+  <input
+    type="text"
+    id="lastName"
+    name="lastName"
+    [(ngModel)]="lastNameInput"
+    placeholder="Apellido"
+  />
 
-    <div class="col-auto">
-      <button 
-        (click)="onAddPerson()" 
-        class="btn btn-primary"
-      >
-        Agregar
-      </button>
-    </div>
-  </div>
+  <button type="submit" (click)="onAddPerson()">+</button>
 </form>
