@@ -1,0 +1,9 @@
+<div class="item">
+  <ul>
+    <li>
+      <a [routerLink]="['/personas', idx]" [queryParams]="{ editMode: '1' }">
+        {{ person.name }} {{ person.lastName }}
+      </a>
+    </li>
+  </ul>
+</div>

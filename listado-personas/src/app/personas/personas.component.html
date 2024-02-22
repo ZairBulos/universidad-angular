@@ -1,0 +1,14 @@
+<div style="text-align: center;">
+  <button  (click)="onAdd()" style="cursor: pointer;">+</button>
+</div>
+
+<div class="box">
+  <app-persona
+    *ngFor="let person of people; let idx = index"
+    [person]="person"
+    [idx]="idx"
+  >
+  </app-persona>
+</div>
+
+<router-outlet></router-outlet>

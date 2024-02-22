@@ -13,8 +13,22 @@ export class PeopleService {
 
   constructor(private logginService: LogginService) {}
 
+  findPerson(id: number): Person {
+    return this.people[id];
+  }
+
   addPerson(person: Person): void {
     this.logginService.log(`Agregamos personas: ${person.name} ${person.lastName}`);
     this.people.push(person);
+  }
+
+  editPerson(id: number, person: Person): void {
+    const editPerson = this.findPerson(id);
+    editPerson.name = person.name;
+    editPerson.lastName = person.lastName;
+  }
+
+  deletePerson(id: number): void {
+    this.people.splice(id, 1);
   }
 }

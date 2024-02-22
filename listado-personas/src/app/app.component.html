@@ -2,15 +2,4 @@
   <h1>{{ title }}</h1>
 </div>
 
-<div class="box">
-  <app-persona
-    *ngFor="let person of people; let idx = index"
-    [person]="person"
-    [idx]="idx"
-  >
-  </app-persona>
-</div>
-
-<div class="box">
-  <app-formulario></app-formulario>
-</div>
+<router-outlet></router-outlet>
