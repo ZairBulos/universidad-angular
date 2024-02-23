@@ -14,7 +14,12 @@ export class PersonasComponent implements OnInit {
   constructor(private peopleService: PeopleService, private router: Router) {}
 
   ngOnInit(): void {
-    this.people = this.peopleService.people;
+    this.peopleService.getPeople().subscribe(
+      (people: Person[]) => {
+        this.people = people;
+        this.peopleService.setPeople(people);
+      }
+    );
   }
 
   onAdd(): void {
