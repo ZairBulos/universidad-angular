@@ -2,21 +2,24 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Person } from './person.model';
+import { LoginService } from './Login.service';
 
 @Injectable()
 export class DataService {
   baseUrl = '';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private loginService: LoginService) {}
 
   getPeople(): Observable<Person[]> {
-    const url = `${this.baseUrl}/datos.json`;
+    const token = this.loginService.getIdToken();
+    const url = `${this.baseUrl}/datos.json?auth=${token}`;
 
     return this.httpClient.get<Person[]>(url);
   }
 
   savePeople(people: Person[]): void {
-    const url = `${this.baseUrl}/datos.json`;
+    const token = this.loginService.getIdToken();
+    const url = `${this.baseUrl}/datos.json?auth=${token}`;
 
     this.httpClient.put(url, people).subscribe(
       (res) => console.log(res),
@@ -25,7 +28,8 @@ export class DataService {
   }
 
   editPerson(id: number, person: Person): void {
-    const url = `${this.baseUrl}/datos/${id}.json`;
+    const token = this.loginService.getIdToken();
+    const url = `${this.baseUrl}/datos/${id}.json?auth=${token}`;
 
     this.httpClient.put(url, person).subscribe(
       (res) => console.log(res),
@@ -34,7 +38,8 @@ export class DataService {
   }
 
   deletePerson(id: number): void {
-    const url = `${this.baseUrl}/datos/${id}.json`;
+    const token = this.loginService.getIdToken();
+    const url = `${this.baseUrl}/datos/${id}.json?auth=${token}`;
 
     this.httpClient.delete(url).subscribe(
       (res) => console.log(res),

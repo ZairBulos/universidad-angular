@@ -22,6 +22,10 @@ h1 {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+.centrado {
+  text-align: center;
+}
+
 #heading {
   background-color: #3f51b5;
   text-align: center;

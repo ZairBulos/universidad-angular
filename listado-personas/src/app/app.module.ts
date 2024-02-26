@@ -7,11 +7,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PersonaComponent } from './personas/persona/persona.component';
 import { FormularioComponent } from './personas/formulario/formulario.component';
-import { LogginService } from './Loggin.service';
 import { PeopleService } from './People.service';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
 import { DataService } from './Data.service';
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './Login.service';
+import { LoginGuardian } from './LoginGuardian.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { DataService } from './Data.service';
     FormularioComponent,
     PersonasComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -28,8 +31,9 @@ import { DataService } from './Data.service';
     FormsModule
   ],
   providers: [
-    LogginService,
     PeopleService,
+    LoginService,
+    LoginGuardian,
     DataService
   ],
   bootstrap: [AppComponent]
